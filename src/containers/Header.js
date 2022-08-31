@@ -1,12 +1,12 @@
-import { Box, Button, Dialog, Grid, TextField } from "@mui/material";
+import { Box, Button, Dialog, TextField } from "@mui/material";
 import React, { useState } from "react";
 import API from "../services/API";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setAllPhotos,
   setAlbum,
   selectedPhoto,
-} from "../redux/actions/productsActions";
+} from "../redux/actions/photosActions";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -41,6 +41,7 @@ const Header = () => {
       .then(() => {
         setDeletePhotoDialog(false);
         navigate("/delete");
+        setDeleteStatus(false)
       })
       .catch((err) => {
         console.log(err);

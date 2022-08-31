@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 const Photo = (props) => {
