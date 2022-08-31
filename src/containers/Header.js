@@ -25,7 +25,6 @@ const Header = () => {
     );
     dispatch(selectedPhoto(response.data));
     setPhotoDialog(false);
-    console.log(response.data);
     navigate("/photo");
   };
   const fetchByAlbumId = async () => {
@@ -103,20 +102,38 @@ const Header = () => {
       >
         Delete By Photo Id
       </Button>
+      <Button
+        variant="contained"
+        color="warning"
+        onClick={() => {
+          navigate("/update")
+        }}
+      >
+       Update
+      </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => {
+          navigate("/addNewAlbum")
+        }}
+      >
+       Add Album
+      </Button>
       <Dialog open={albumDialog}>
-        <TextField type="number" onChange={handleChange} />
+        <TextField type="number" placeholder="Enter Album ID" onChange={handleChange} />
         <Button variant="contained" color="success" onClick={fetchByAlbumId}>
           Submit
         </Button>{" "}
       </Dialog>
       <Dialog open={photoDialog}>
-        <TextField type="number" onChange={hanldePhotoId} />
+        <TextField type="number" placeholder="Enter Photo ID" onChange={hanldePhotoId} />
         <Button variant="contained" color="success" onClick={fetchByPhotoId}>
           Submit
         </Button>{" "}
       </Dialog>
       <Dialog open={deletePhotoDialog}>
-        <TextField type="number" onChange={handleDelete} error={deleteStatus}/>
+        <TextField type="number" onChange={handleDelete}  placeholder="Enter Photo ID to Delete"  error={deleteStatus}/>
         <Button variant="contained" color="error" onClick={deletePhoto}>
           Submit
         </Button>{" "}
